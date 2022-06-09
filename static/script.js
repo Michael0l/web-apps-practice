@@ -16,7 +16,7 @@ fetch('/sendMessage', {
   },
   body: JSON.stringify({
       initData: window.Telegram.WebApp.initData,
-      msg: Telegram.WebApp.WebAppInitData
+      msg: Telegram.WebApp.WebAppUser
   })
 });
 
