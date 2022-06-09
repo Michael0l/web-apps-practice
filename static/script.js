@@ -19,7 +19,7 @@ function configureThemeColor(color) {
 }
 
 function addNameGreeting(welcome) {
-  if (Telegram.WebApp.initDataUnsafe.user != "") {
+  if (Boolean(Telegram.WebApp.initDataUnsafe.user)) {
     welcome.textContent = `Привет, ${Telegram.WebApp.initDataUnsafe.user.first_name}! Заполни анкету`;
     
   }
