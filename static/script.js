@@ -5,20 +5,8 @@ form.addEventListener('submit', getFormValue);
 
 Telegram.WebApp.ready()
 configureThemeColor(Telegram.WebApp.colorScheme);
-// addNameGreeting(Telegram.WebApp.WebAppInitData.user.first_name, welcome);
+addNameGreeting(Telegram.WebApp.initDataUnsafe.user.first_name, welcome);
 
-
-fetch('/sendMessage', {
-  method: 'POST',
-  headers: {
-      'Accept': 'application/json',
-      'Content-Type': 'application/json'
-  },
-  body: JSON.stringify({
-      initData: window.Telegram.WebApp.initData,
-      msg: Telegram.WebApp.initDataUnsafe
-  })
-});
 
 
 function configureThemeColor(color) {
