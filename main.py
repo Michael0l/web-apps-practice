@@ -10,4 +10,9 @@ def index():
     return send_file('static/index.html')
 
 
-app.run(host=config.WEBAPP_HOST, port=config.WEBAPP_PORT)
+def main():
+    app.run(host=config.WEBAPP_HOST, port=config.WEBAPP_PORT)
+
+
+if __name__ == "__main__":
+    main()
