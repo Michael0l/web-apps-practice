@@ -16,7 +16,7 @@ function configureThemeColor(color) {
 }
 
 function addNameGreeting(tg_name, welcome) {
-  if (Telegram.WebApp.first_name) {
+  if (tg_name) {
     welcome.textContent = `Привет, ${tg_name}! Заполни анкету`;
     
   }
