@@ -43,14 +43,7 @@ function getFormValue(event) {
       // text.value = ''
 
       
-      const form = [...cartItems.children].reduce((res) => {
-      res.push({
-          name: name.value,
-          price: email.value,
-          amount: text.value
-      });
-      return res;
-      }, []);
+      const form_text = data
 
       fetch('/sendMessage', {
           method: 'POST',
@@ -60,7 +53,7 @@ function getFormValue(event) {
           },
           body: JSON.stringify({
               initData: window.Telegram.WebApp.initData,
-              msg: form
+              msg: form_text
           })
       });
     
