@@ -17,7 +17,7 @@ function configureThemeColor(color) {
 }
 
 function addNameGreeting(welcome) {
-  if (Telegram.WebApp.initDataUnsafe) {
+  if (Telegram.WebApp.initDataUnsafe != "") {
     welcome.textContent = `Привет, ${Telegram.WebApp.initDataUnsafe.user.first_name}! Заполни анкету`;
     
   }
@@ -47,11 +47,7 @@ function getFormValue(event) {
         el = form.querySelector(`[name="${key}"]`);
         el.style.borderColor = '#00677e';
         };
-      // name.value = ''
-      // email.value = ''
-      // text.value = ''
-
-      
+    
       const form_text = data
 
       fetch('/sendMessage', {
@@ -66,10 +62,6 @@ function getFormValue(event) {
           })
       });
     
-
-
-
-
       console.log(data) 
     };
 };
