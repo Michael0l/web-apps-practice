@@ -5,7 +5,7 @@ form.addEventListener('submit', getFormValue);
 
 Telegram.WebApp.ready()
 configureThemeColor(Telegram.WebApp.colorScheme);
-addNameGreeting(Telegram.WebApp.initDataUnsafe.user.first_name, welcome);
+addNameGreeting(welcome);
 
 
 
@@ -16,9 +16,9 @@ function configureThemeColor(color) {
   }
 }
 
-function addNameGreeting(tg_name, welcome) {
-  if (tg_name) {
-    welcome.textContent = `Привет, ${tg_name}! Заполни анкету`;
+function addNameGreeting(welcome) {
+  if (Telegram.WebApp.initDataUnsafe) {
+    welcome.textContent = `Привет, ${Telegram.WebApp.initDataUnsafe.user.first_name}! Заполни анкету`;
     
   }
 }
