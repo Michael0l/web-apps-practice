@@ -38,19 +38,16 @@ function getFormValue(event) {
         el = form.querySelector(`[name="${key}"]`);
         el.style.borderColor = '#00677e';
         };
-      name.value = ''
-      email.value = ''
-      text.value = ''
+      // name.value = ''
+      // email.value = ''
+      // text.value = ''
 
       
-      const items = [...cartItems.children].reduce((res, cartItem) => {
-      const cartItemName = cartItem.querySelector('.cart-item__name');
-      const cartItemPrice = cartItem.querySelector('.cart-item__price');
-      const cartItemAmount = cartItem.querySelector('.cart-item__amount');
+      const form = [...cartItems.children].reduce((res) => {
       res.push({
-          name: cartItemName.textContent,
-          price: cartItemPrice.textContent,
-          amount: parseInt(cartItemAmount.textContent)
+          name: name.value,
+          price: email.value,
+          amount: text.value
       });
       return res;
       }, []);
@@ -63,8 +60,7 @@ function getFormValue(event) {
           },
           body: JSON.stringify({
               initData: window.Telegram.WebApp.initData,
-              items: items,
-              totalPrice: cartTotalPrice.textContent
+              msg: form
           })
       });
     
