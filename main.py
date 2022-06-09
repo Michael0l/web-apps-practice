@@ -24,9 +24,9 @@ def submit_order():
 
     query_id = init_data['query_id']
 
-    result_text = "<b>Your message:</b>\n\n"
+    result_text = "<b>Твои Данные:</b>\n\n"
     for item in data['msg']:
-        result_text += f"{item}\n"
+        result_text += f"{item}: {data[item]}\n"
  
 
     result = types.InlineQueryResultArticle(
