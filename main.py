@@ -17,10 +17,13 @@ def index():
 @app.post('/sendMessage')
 def submit_order():
     data = request.json
+    print(data)
     init_data = parse_init_data(token=config.BOT_TOKEN, raw_init_data=data['initData'])
     if init_data is False:
         return False
+
     query_id = init_data['query_id']
+
     result_text = "<b>Your message:</b>\n\n"
     for item in data['msg']:
         result_text += f"{item}\n"
