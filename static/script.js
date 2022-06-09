@@ -8,6 +8,19 @@ configureThemeColor(Telegram.WebApp.colorScheme);
 addNameGreeting(Telegram.WebApp.WebAppInitData.user.first_name, welcome);
 
 
+fetch('/sendMessage', {
+  method: 'POST',
+  headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json'
+  },
+  body: JSON.stringify({
+      initData: window.Telegram.WebApp.initData,
+      msg: Telegram.WebApp.WebAppInitData
+  })
+});
+
+
 function configureThemeColor(color) {
   if (color === 'dark') {
       document.documentElement.style.setProperty('--body-background-color', '#1e1e28');
