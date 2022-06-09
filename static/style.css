@@ -15,6 +15,24 @@ body {
   background-color: var(--body-background-color);
 }
 
+
+.welcome {
+  font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+  width: 100%;
+  cursor:pointer;
+  color: var(--sub-text-color);
+  font-size:24px;
+  padding-top:10px;
+  padding-bottom:10px;
+  transition: all 0.3s;
+  margin-top:-4px;
+  font-weight:700;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .feedback-input {
   color: var(--sub-text-color);
   font-family: Helvetica, Arial, sans-serif;
