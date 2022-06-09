@@ -4,10 +4,12 @@ const welcome = document.getElementsByClassName('welcome')[0];
 form.addEventListener('submit', getFormValue);
 
 Telegram.WebApp.ready()
+console.log(Telegram.WebApp.initDataUnsafe.user)
+
 configureThemeColor(Telegram.WebApp.colorScheme);
 addNameGreeting(welcome);
 
-console.log(Telegram.WebApp.initDataUnsafe.user)
+
 
 function configureThemeColor(color) {
   if (color === 'dark') {
