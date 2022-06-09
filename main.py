@@ -1,13 +1,13 @@
 from flask import Flask, request, abort, send_file
-# from telebot import TeleBot, types
+from telebot import TeleBot, types
 
 import config
-# from utils import parse_init_data
+from utils import parse_init_data
 
 from threading import Thread
 
 
-# bot = TeleBot(config.BOT_TOKEN, parse_mode="html")
+bot = TeleBot(config.BOT_TOKEN, parse_mode="html")
 app = Flask(__name__, static_url_path='/static')
 
 
@@ -27,27 +27,27 @@ def index():
     return send_file('static/index.html')
 
 
-# @app.post('/submitOrder')
-# def submit_order():
-#     data = request.json
-#     init_data = parse_init_data(token=config.BOT_TOKEN, raw_init_data=data['initData'])
-#     if init_data is False:
-#         return False
+@app.post('/submitOrder')
+def submit_order():
+    data = request.json
+    init_data = parse_init_data(token=config.BOT_TOKEN, raw_init_data=data['initData'])
+    if init_data is False:
+        return False
 
-#     query_id = init_data['query_id']
+    query_id = init_data['query_id']
 
-#     result_text = "<b>Order summary:</b>\n\n"
-#     for item in data['items']:
-#         name, price, amount = item.values()
-#         result_text += f"{name} x{amount} — <b>{price}</b>\n"
-#     result_text += '\n' + data["totalPrice"]
+    result_text = "<b>Order summary:</b>\n\n"
+    for item in data['items']:
+        name, price, amount = item.values()
+        result_text += f"{name} x{amount} — <b>{price}</b>\n"
+    result_text += '\n' + data["totalPrice"]
 
-#     result = types.InlineQueryResultArticle(
-#         id=query_id,
-#         title='Order',
-#         input_message_content=types.InputTextMessageContent(message_text=result_text, parse_mode='HTML'))
-#     bot.answer_web_app_query(query_id, result)
-#     return ''
+    result = types.InlineQueryResultArticle(
+        id=query_id,
+        title='Order',
+        input_message_content=types.InputTextMessageContent(message_text=result_text, parse_mode='HTML'))
+    bot.answer_web_app_query(query_id, result)
+    return ''
 
 
 # @bot.message_handler(commands=['start'])
