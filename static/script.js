@@ -8,10 +8,11 @@ configureThemeColor(Telegram.WebApp.colorScheme);
 
 function configureThemeColor(color) {
   if (color === 'dark') {
-      document.documentElement.style.setProperty('--body-background-color', '#1f1e1f');
+      document.documentElement.style.setProperty('--body-background-color', '#1e1e28');
       document.documentElement.style.setProperty('--sub-text-color', 'white');
   }
 }
+
 
 function getFormValue(event) {
   event.preventDefault();
@@ -40,6 +41,37 @@ function getFormValue(event) {
       name.value = ''
       email.value = ''
       text.value = ''
+
+      
+      const items = [...cartItems.children].reduce((res, cartItem) => {
+      const cartItemName = cartItem.querySelector('.cart-item__name');
+      const cartItemPrice = cartItem.querySelector('.cart-item__price');
+      const cartItemAmount = cartItem.querySelector('.cart-item__amount');
+      res.push({
+          name: cartItemName.textContent,
+          price: cartItemPrice.textContent,
+          amount: parseInt(cartItemAmount.textContent)
+      });
+      return res;
+      }, []);
+
+      fetch('/sendMessage', {
+          method: 'POST',
+          headers: {
+              'Accept': 'application/json',
+              'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+              initData: window.Telegram.WebApp.initData,
+              items: items,
+              totalPrice: cartTotalPrice.textContent
+          })
+      });
+    
+
+
+
+
       console.log(data) 
     };
 };
