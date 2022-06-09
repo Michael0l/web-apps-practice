@@ -7,7 +7,7 @@ Telegram.WebApp.ready()
 configureThemeColor(Telegram.WebApp.colorScheme);
 addNameGreeting(welcome);
 
-
+console.log(Telegram.WebApp.initDataUnsafe.user)
 
 function configureThemeColor(color) {
   if (color === 'dark') {
