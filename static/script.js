@@ -5,7 +5,7 @@ form.addEventListener('submit', getFormValue);
 
 Telegram.WebApp.ready()
 configureThemeColor(Telegram.WebApp.colorScheme);
-addNameGreeting(Telegram.WebAppUser.first_name, welcome);
+addNameGreeting(Telegram.WebApp.WebAppInitData.user.first_name, welcome);
 
 
 function configureThemeColor(color) {
