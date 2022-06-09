@@ -1,1 +1,1 @@
-web: python main.py thin start -p $PORT
+web: gunicorn app:main
