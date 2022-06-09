@@ -6,8 +6,12 @@ form.addEventListener('submit', getFormValue);
 Telegram.WebApp.ready()
 configureThemeColor(Telegram.WebApp.colorScheme);
 
-
-
+function configureThemeColor(color) {
+  if (color === 'dark') {
+      document.documentElement.style.setProperty('--body-background-color', '#1f1e1f');
+      document.documentElement.style.setProperty('--sub-text-color', 'white');
+  }
+}
 
 function getFormValue(event) {
   event.preventDefault();
