@@ -18,7 +18,7 @@ function configureThemeColor(color) {
 
 function addNameGreeting(welcome) {
   if (Boolean(Telegram.WebApp.initDataUnsafe.user)) {
-    welcome.textContent = `Привет,${Telegram.WebApp.initDataUnsafe.user.first_name}!`;
+    welcome.textContent = `Привет, ${Telegram.WebApp.initDataUnsafe.user.first_name}!`;
     
   }
 }
@@ -65,6 +65,5 @@ function getFormValue(event) {
       console.log(data) 
     };
 };
-
 
 
