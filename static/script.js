@@ -1,5 +1,5 @@
 const form = document.getElementById('form');
-const welcome = document.getElementsByClassName('welcome')[0];
+const welcome = document.getElementsByClassName('welcome_name')[0];
 
 form.addEventListener('submit', getFormValue);
 
@@ -18,7 +18,7 @@ function configureThemeColor(color) {
 
 function addNameGreeting(welcome) {
   if (Boolean(Telegram.WebApp.initDataUnsafe.user)) {
-    welcome.textContent = `Привет, ${Telegram.WebApp.initDataUnsafe.user.first_name}! Заполни анкету`;
+    welcome.textContent = `Привет,${Telegram.WebApp.initDataUnsafe.user.first_name}!`;
     
   }
 }
@@ -65,5 +65,6 @@ function getFormValue(event) {
       console.log(data) 
     };
 };
+
 
 
